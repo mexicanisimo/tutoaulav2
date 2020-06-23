@@ -1,45 +1,28 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        />
-
+     
+<q-toolbar  class="bg-grey-1 text-black q-pa-md">
+           <q-btn flat round dense icon="menu" class="q-mr-sm" />
+ <q-avatar>
+        <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
+      </q-avatar>
         <q-toolbar-title>
-          Quasar App
+          Tutoaula
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+          
+     <div class="text-bold q-gutter-sm">
+       <!-- <div class="text-h6 q-pr-lg"> Contactanos</div> -->
+        <q-btn flat color="cyan-9" label="Herramientas" />
+        <q-btn flat color="cyan-9" label="Nosotros" />
+        <q-btn flat color="cyan-9" label="Contactanos" />
+        <q-btn outline color="cyan-9" label="Registro" />
+         <q-btn  outline color="pink-4" label="Login" />
+     </div>
+     
       </q-toolbar>
+ 
     </q-header>
-
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-grey-1"
-    >
-      <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Essential Links
-        </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
-
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -59,6 +42,7 @@ export default {
   data () {
     return {
       leftDrawerOpen: false,
+      tab: '',
       essentialLinks: [
         {
           title: 'Docs',
